@@ -1,0 +1,14 @@
+body{
+	zoom: 1.5;
+}
+
+img{
+	display: inline-block;
+	max-height: 100px;
+	min-height: 50px;
+	margin: 5%;
+}
+
+.disable{
+	cursor: not-allowed;
+}

@@ -1,0 +1,18 @@
+body{
+	zoom: 2;
+}
+
+a{
+	padding: 5% 15% 5% 15% !important;
+	margin: 5% !important;
+}
+
+img{
+	width: 25% !important;
+	height: 25% !important;
+	pointer-events: none !important;
+}
+
+h1{
+	margin: 5% !important;
+}

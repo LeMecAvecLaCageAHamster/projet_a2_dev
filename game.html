@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Betterave Game</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/game.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="icon" href="src/img/beetroot.ico">
+</head>
+
+<body>
+	<a id='back' href="index.html" class="glyphicon glyphicon-arrow-left"></a>
+	<div id="game"></div>
+</body>
+
+<footer>
+	<script src="js/phaser.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/index.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#game').append($('canvas'));
+		});
+	</script>
+</footer>
+
+</html>

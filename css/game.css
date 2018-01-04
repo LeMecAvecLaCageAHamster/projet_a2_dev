@@ -1,0 +1,18 @@
+body{
+	text-align: center;
+}
+
+canvas{
+	display: inline-block !important;
+	border: 5px solid hsl(0, 0%, 60%);
+	padding: 2px;
+	background: hsl(0, 0%, 20%);
+	outline: 5px solid hsl(0, 0%, 70%);
+	box-shadow:
+	0 0 0 10px hsl(0, 0%, 80%),
+	0 0 0 15px hsl(0, 0%, 90%);
+}
+
+#test{
+	display: inline-block;
+}
