@@ -13,10 +13,6 @@ var player;
 var platforms;
 var cursors;
 
-var stars;
-var score = 0;
-var scoreText;
-
 function create() {
     // var sky = game.add.sprite(0, 0, 'sky');
     // sky.scale.setTo(window.innerWidth/2000,window.innerWidth/1500);

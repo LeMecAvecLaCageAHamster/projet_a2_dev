@@ -13,6 +13,18 @@ canvas{
 	0 0 0 15px hsl(0, 0%, 90%);
 }
 
-#test{
+#game{
 	display: inline-block;
+}
+
+#editor{
+	display: inline-block;
+	border: 3px dashed gray;
+	min-width: 15%;
+}
+
+#code-area{
+	color: blue;
+	background-color: lightgrey;
+	min-height: 75%;
 }

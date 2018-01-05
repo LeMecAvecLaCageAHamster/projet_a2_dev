@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<meta charset="UTF-8">
 	<title>Betterave Game</title>
@@ -11,7 +11,18 @@
 
 <body>
 	<a id='back' href="index.html" class="glyphicon glyphicon-arrow-left"></a>
-	<div id="game"></div>
+	<div id="game" class="col-md-6 col-md-offset-1"></div>
+	<div id="editor" class="col-md-3">
+		
+		<h3>Liste des attributs / méthodes liées au héros</h3>
+		<!-- Mettre la liste des attributs/méthodes utilisables -->
+
+		<hr>
+
+		<textarea id="code-area" placeholder="Edit code here..."></textarea>
+
+		<button id="execute" class="btn btn-success">Execute !</button>
+	</div>
 </body>
 
 <footer>
@@ -22,6 +33,14 @@
 	<script>
 		$(document).ready(function() {
 			$('#game').append($('canvas'));
+		});
+		$('#execute').click(function(){
+			try{
+				var exec = eval($('#code-area').val());
+				$('#code-area').empty();
+			}catch(e){
+				alert("Ton code n'est pas bon : " + e);	
+			}
 		});
 	</script>
 </footer>
