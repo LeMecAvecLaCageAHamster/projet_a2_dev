@@ -1,5 +1,8 @@
 body{
 	text-align: center;
+	/*overflow: auto !important;*/
+	margin-left: 1em !important;
+	margin-right: 1em !important;
 }
 
 canvas{
@@ -17,10 +20,18 @@ canvas{
 	display: inline-block;
 }
 
+#player-detail{
+	display: inline-block;
+	border: 3px dashed gray;
+	min-width: 15%;
+	padding: 1em;
+}
+
 #editor{
 	display: inline-block;
 	border: 3px dashed gray;
 	min-width: 15%;
+	padding: 1em;
 }
 
 #code-area{
