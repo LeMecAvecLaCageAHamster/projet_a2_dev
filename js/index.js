@@ -4,7 +4,7 @@ function preload() {
 
     game.load.image('sky', 'src/img/sky.png');
     game.load.spritesheet('ground', 'src/img/platform.png', 32, 32);
-    game.load.spritesheet('hero', 'src/img/hero.png', 32, 48);
+    game.load.spritesheet('hero', 'src/img/betteraveMan.png', 32, 32);
 
     game.load.tilemap('map', 'src/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
 }
@@ -13,6 +13,20 @@ var player;
 var platforms;
 var cursors;
 
+<<<<<<< Updated upstream
+=======
+var stars;
+var score = 0;
+var scoreText;
+
+var tutorialDialogue = [
+    'Bonjour jeune homme, tu es ici dans le fabuleux monde du JavaScript !',
+    'Tu ne dois pas savoir pourquoi tu es ici je suppose ?',
+    'C\'est très simple, tu es l\'élu de la prophétie !',
+    'Celui qui rammènera l\'ordre dans notre royaume !'
+];
+
+>>>>>>> Stashed changes
 function create() {
     // var sky = game.add.sprite(0, 0, 'sky');
     // sky.scale.setTo(window.innerWidth/2000,window.innerWidth/1500);
@@ -96,6 +110,8 @@ function update() {
     {
         player.body.velocity.y = -350;
     }
+
+
 
 }
 
