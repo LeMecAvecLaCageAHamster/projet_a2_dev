@@ -8,18 +8,26 @@
 <div class="col-md-6">
 	<div id="player-detail">
 		<h3>Liste des attributs / méthodes liées au héros</h3>
-		<!-- Mettre la liste des attributs/méthodes utilisables -->
+		
+		<ol class="list-group">
+			<li class="list-group-item"><b>player.body.gravity.y</b> : Nombre -> l'effet de la gravity sur la betterave</li>
+			<li class="list-group-item"><b>player.maxSpeed</b> : Nombre -> la vitesse de déplacement de la betterave</li>
+		</ol>
+
 	</div>
 	<hr>
 	<div id="editor">
 		<h3>Code Area</h3>
-		<textarea id="code-area" placeholder="Edit code here..."></textarea>
+		<textarea id="code-area" placeholder="Write code here..."></textarea>
 		<br>
 		<button id="execute" class="btn btn-lg btn-success">Execute !</button>
+		<br><br>
+		<div id="coding-result" role="alert"></div>
 	</div>
 </div>
 
-<footer>
+<footer>	
+	<script src="js/jquery.min.js"></script>
 	<script src="js/phaser.min.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/coding.js"></script>
