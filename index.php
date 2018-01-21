@@ -19,7 +19,21 @@
 			session_destroy();
 		}
 
-		if($_POST['user'] && $_POST['password']){
+		if(isset($_POST['register'])){
+			if(isset($_POST['user'], $_POST['password'], $_POST['check-password'])){
+				if($_POST['password'] == $_POST['check-password']){		
+					$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', '');
+					$response = $db->query("INSERT INTO users VALUES (null, '".$_POST['user']."', '".$_POST['password']."', 0);");
+					
+					$_SESSION['user'] = $_POST['user'];
+				}else{
+					$error = "Passwords doesn't match !";
+				}
+			}else{
+				$error = "You have to fill in every fields !";
+			}
+
+		}else if($_POST['user'] && $_POST['password']){
 
 			$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', '');
 			$response = $db->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
@@ -28,7 +42,6 @@
 				if($_POST['user'] == $user['login']){
 					if($_POST['password'] == $user['password']){
 						$_SESSION['user'] = $_POST['user'];
-						$_SESSION['password'] = $_POST['password'];
 						break;
 					}
 				}
@@ -40,7 +53,11 @@
 		}
 
 		if(empty($_SESSION)){
-			require_once("html/connection.html");
+			if(isset($_GET['register'])){
+				require_once("html/register.html");
+			}else{
+				require_once("html/connection.html");
+			}
 		}else{
 			switch ($_GET['page']) {
 				case 'level':

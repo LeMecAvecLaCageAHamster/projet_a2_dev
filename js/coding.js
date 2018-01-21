@@ -22,3 +22,7 @@ $('#execute').click(function(){
 		}
 	}
 });
+
+function reload(){
+	this.location.reload();
+}

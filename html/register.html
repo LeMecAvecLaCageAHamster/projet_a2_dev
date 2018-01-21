@@ -17,15 +17,20 @@
 				</div>
 
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary">Login</button>
+					<label for="check-password">Re-type password</label>
+					<input type="password" id="check-password" name="check-password" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<button type="submit" name="register" class="btn btn-primary">Join the Rebellion !</button>
 				</div>
 			</form>
+			<a href="index.php?register"><b>Already a user ? Log in !</b></a>
 			<?php if($error): ?>
 				<div class="alert alert-danger" role="alert">
 					<?= $error ?>
 				</div>
 			<?php endif; ?>
-			<a href="index.php?register"><b>New User ? Sign In !</b></a>
 		</div>
 	</div>
 </div>

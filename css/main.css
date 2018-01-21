@@ -20,7 +20,7 @@ body{
 
 #logout{
 	zoom: 1 !important;
-	position: fixed;
+	position: absolute;
 	top: 1em;
 	right: 1em;
 }
