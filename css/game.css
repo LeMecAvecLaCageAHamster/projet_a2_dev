@@ -1,12 +1,13 @@
 body{
 	text-align: center;
-	/*overflow: auto !important;*/
-	margin-left: 1em !important;
-	margin-right: 1em !important;
+	overflow: auto !important;
+	margin-left: 2em !important;
+	margin-right: 2em !important;
+	min-width: 1200px;
+	min-height: 600px;
 }
 
 canvas{
-	display: inline-block !important;
 	border: 5px solid hsl(0, 0%, 60%);
 	padding: 2px;
 	background: hsl(0, 0%, 20%);
@@ -21,21 +22,21 @@ canvas{
 }
 
 #player-detail{
-	display: inline-block;
-	border: 3px dashed gray;
-	min-width: 15%;
-	padding: 1em;
+	display: block;
+	min-height: 10em !important;
+	max-height: 30em !important;
 }
 
 #editor{
-	display: inline-block;
-	border: 3px dashed gray;
-	min-width: 15%;
-	padding: 1em;
+	display: block;
+	min-height: 10em !important;
+	max-height: 30em !important;
 }
 
 #code-area{
-	color: blue;
-	background-color: lightgrey;
+	width: 75% !important;
+	color: black;
+	font-size: 200%;
+	background-color: lightblue !important;
 	min-height: 75%;
 }

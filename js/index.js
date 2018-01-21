@@ -17,13 +17,6 @@ var stars;
 var score = 0;
 var scoreText;
 
-var tutorialDialogue = [
-    'Bonjour jeune homme, tu es ici dans le fabuleux monde du JavaScript !',
-    'Tu ne dois pas savoir pourquoi tu es ici je suppose ?',
-    'C\'est très simple, tu es l\'élu de la prophétie !',
-    'Celui qui rammènera l\'ordre dans notre royaume !'
-];
-
 
 function create() {
     // var sky = game.add.sprite(0, 0, 'sky');
