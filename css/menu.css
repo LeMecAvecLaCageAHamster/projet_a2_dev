@@ -1,5 +1,5 @@
 body{
-	margin-top: 15em !important;
+	margin-top: 10em !important;
 }
 
 a{
@@ -15,6 +15,10 @@ img{
 
 h1{
 	margin: 5% !important;
+}
+
+form{
+	text-align: left;
 }
 
 #content{

@@ -17,3 +17,9 @@ body{
 	font-size: 30px !important;
 	text-decoration: none !important;
 }
+
+#logout{
+	position: fixed;
+	top: 1px;
+	right: 1px;
+}
