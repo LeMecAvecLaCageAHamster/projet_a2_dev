@@ -19,7 +19,8 @@ body{
 }
 
 #logout{
+	zoom: 1 !important;
 	position: fixed;
-	top: 1px;
-	right: 1px;
+	top: 1em;
+	right: 1em;
 }

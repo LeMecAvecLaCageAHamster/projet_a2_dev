@@ -14,9 +14,29 @@
 		session_start();
 		error_reporting(0);
 
+		if(isset($_GET['logout'])){
+			unset($_SESSION);
+			session_destroy();
+		}
+
 		if($_POST['user'] && $_POST['password']){
-			$_SESSION['user'] = $_POST['user'];
-			$_SESSION['password'] = $_POST['password'];
+
+			$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', '');
+			$response = $db->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach ($response as $user) {
+				if($_POST['user'] == $user['login']){
+					if($_POST['password'] == $user['password']){
+						$_SESSION['user'] = $_POST['user'];
+						$_SESSION['password'] = $_POST['password'];
+						break;
+					}
+				}
+			}
+
+			if(empty($_SESSION['user'])){
+				$error = "Bad Authentification !";
+			}
 		}
 
 		if(empty($_SESSION)){
@@ -34,7 +54,16 @@
 					break;
 			}
 		}
+
 	?>
+
+
+	<?php if($_SESSION['user']): ?>
+		<div id="logout">
+			<h4>Connected as <?= $_SESSION['user'] ?></h4>
+			<a href="index.php?logout">Logout</a>
+		</div>
+	<?php endif; ?>
 
 </body>
 <footer>

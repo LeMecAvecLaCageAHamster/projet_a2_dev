@@ -20,6 +20,11 @@
 					<button type="submit" class="btn btn-primary">Login</button>
 				</div>
 			</form>
+			<?php if($error): ?>
+				<div class="alert alert-danger" role="alert">
+					<?= $error ?>
+				</div>
+			<?php endif; ?>
 			<a href="#"><b>New User ? Sign In !</b></a>
 		</div>
 	</div>
