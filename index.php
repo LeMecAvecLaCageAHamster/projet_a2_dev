@@ -79,7 +79,7 @@
 		<div id="logout">
 			<h4>Connected as <?= $_SESSION['user'] ?></h4>
 			<form method="post">
-				<input type="submit" name="logout" class="btn btn-secondary">
+				<input type="submit" name="logout" class="btn btn-secondary" value="Logout">
 			</form>
 		</div>
 	<?php endif; ?>
