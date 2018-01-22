@@ -11,10 +11,10 @@
 <body>
 	
 	<?php
-		session_start();
 		error_reporting(0);
+		session_start();
 
-		if(isset($_GET['logout'])){
+		if(isset($_POST['logout'])){
 			unset($_SESSION);
 			session_destroy();
 		}
@@ -78,7 +78,9 @@
 	<?php if($_SESSION['user']): ?>
 		<div id="logout">
 			<h4>Connected as <?= $_SESSION['user'] ?></h4>
-			<a href="index.php?logout">Logout</a>
+			<form method="post">
+				<input type="submit" name="logout" class="btn btn-secondary">
+			</form>
 		</div>
 	<?php endif; ?>
 
