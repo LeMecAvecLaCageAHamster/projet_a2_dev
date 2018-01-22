@@ -22,7 +22,7 @@
 		if(isset($_POST['register'])){
 			if(isset($_POST['user'], $_POST['password'], $_POST['check-password'])){
 				if($_POST['password'] == $_POST['check-password']){		
-					$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', '');
+					$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', 'root');
 					$response = $db->query("INSERT INTO users VALUES (null, '".$_POST['user']."', '".$_POST['password']."', 0);");
 					
 					$_SESSION['user'] = $_POST['user'];
@@ -35,7 +35,7 @@
 
 		}else if($_POST['user'] && $_POST['password']){
 
-			$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', '');
+			$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', 'root');
 			$response = $db->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
 
 			foreach ($response as $user) {
