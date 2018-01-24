@@ -21,6 +21,6 @@ body{
 #logout{
 	zoom: 1 !important;
 	position: absolute;
-	top: .2em;
-	right: .2em;
+	top: .5em;
+	right: 1em;
 }
