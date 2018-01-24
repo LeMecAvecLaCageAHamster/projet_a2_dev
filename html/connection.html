@@ -20,7 +20,7 @@
 					<button type="submit" class="btn btn-primary">Login</button>
 				</div>
 			</form>
-			<?php if($error): ?>
+			<?php if(isset($error)): ?>
 				<div class="alert alert-danger" role="alert">
 					<?= $error ?>
 				</div>

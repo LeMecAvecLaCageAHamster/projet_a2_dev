@@ -10,55 +10,69 @@
 </head>
 <body>
 	
-	<?php
-		error_reporting(0);
+<?php
+
+		require_once('controllers/db.php');
+
+		// error_reporting(0);
 		session_start();
 
+		/* ----------------------------------------------------------------*/
+
+		/* dans le cas de la déconnection */
 		if(isset($_POST['logout'])){
 			unset($_SESSION);
 			session_destroy();
 		}
 
+		/* dans le cas de l'inscription */
 		if(isset($_POST['register'])){
+
 			if(isset($_POST['user'], $_POST['password'], $_POST['check-password'])){
+
 				if($_POST['password'] == $_POST['check-password']){		
-					$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', 'root');
-					$response = $db->query("INSERT INTO users VALUES (null, '".$_POST['user']."', '".$_POST['password']."', 0);");
+
+					try{
+						$db = new DB('root', '');
+						$db->addUser($_POST['user'], $_POST['password']);
+
+						$_SESSION['user'] = $_POST['user'];
+					}catch(PDOException $e){
+						$error = "Error database => $e";
+					}
 					
-					$_SESSION['user'] = $_POST['user'];
 				}else{
 					$error = "Passwords doesn't match !";
 				}
+
 			}else{
 				$error = "You have to fill in every fields !";
 			}
 
-		}else if($_POST['user'] && $_POST['password']){
+		/* dans le cas de la connection */
+		}else if(isset($_POST['user'], $_POST['password']) && $_POST['password']){
 
-			$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', 'root');
-			$response = $db->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
+			$db = new DB('root', '');
+			$login = $db->login($_POST['user'], $_POST['password']);
 
-			foreach ($response as $user) {
-				if($_POST['user'] == $user['login']){
-					if($_POST['password'] == $user['password']){
-						$_SESSION['user'] = $_POST['user'];
-						break;
-					}
-				}
-			}
-
-			if(empty($_SESSION['user'])){
+			if($login){
+				$_SESSION['user'] = $_POST['user'];
+			}else{
 				$error = "Bad Authentification !";
 			}
 		}
 
-		if(empty($_SESSION)){
+
+		if(empty($_SESSION)){ // utilisateur non connecté / inscrit
+
 			if(isset($_GET['register'])){
 				require_once("html/register.html");
 			}else{
 				require_once("html/connection.html");
 			}
 		}else{
+
+			/* système de navigation dans l'application */
 			switch ($_GET['page']) {
 				case 'level':
 					require_once("html/level.html");
@@ -72,18 +86,17 @@
 			}
 		}
 
-	?>
 
-
-	<?php if($_SESSION['user']): ?>
+	if(isset($_SESSION['user'])): ?>
 		<div id="logout">
 			<h4>Connected as <?= $_SESSION['user'] ?></h4>
-			<form method="post">
-				<input type="submit" name="logout" class="btn btn-secondary" value="Logout">
+			<form method="post" action="index.php">
+				<input type="submit" name="logout" class="btn btn-light" value="Logout">
 			</form>
 		</div>
-	<?php endif; ?>
+	<?php endif;
 
+?>
 </body>
 <footer>
 	<script src="js/jquery.min.js"></script>
