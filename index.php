@@ -72,6 +72,8 @@
 			}
 		}else{
 
+			$_GET['page'] = isset($_GET['page']) ? $_GET['page'] : "";
+			
 			/* système de navigation dans l'application */
 			switch ($_GET['page']) {
 				case 'level':
@@ -89,8 +91,8 @@
 
 	if(isset($_SESSION['user'])): ?>
 		<div id="logout">
-			<h4>Connected as <?= $_SESSION['user'] ?></h4>
 			<form method="post" action="index.php">
+				Connected as <?= $_SESSION['user'] ?>
 				<input type="submit" name="logout" class="btn btn-light" value="Logout">
 			</form>
 		</div>
