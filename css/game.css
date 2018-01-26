@@ -35,8 +35,8 @@ canvas{
 
 #code-area{
 	width: 75% !important;
-	color: black;
+	color: #004085;
 	font-size: 200%;
-	background-color: lightblue !important;
+	background-color: #cce5ff !important;
 	min-height: 75%;
 }
