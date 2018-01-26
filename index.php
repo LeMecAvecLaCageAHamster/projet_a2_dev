@@ -98,8 +98,6 @@
 		</div>
 	<?php endif;
 
-
-	require_once('html/modal.html');
 ?>
 </body>
 <footer>

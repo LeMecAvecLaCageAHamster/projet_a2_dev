@@ -15,6 +15,7 @@ class DB {
 	}
 
 	public function getUser($login){
+
 		$query = 'SELECT * FROM users WHERE login = :login';
 		$statement = $this->pdo->prepare($query);
 		$statement->execute([
@@ -32,7 +33,7 @@ class DB {
 
 			$password = sha1($password);
 
-			$query = 'INSERT INTO users VALUES (null, :login, :password, 0)';
+			$query = 'INSERT INTO users VALUES (null, :login, :password, 0, 0, 0)';
 			$statement = $this->pdo->prepare($query);
 			$statement->execute([
 				':login' => $login,
