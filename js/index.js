@@ -3,7 +3,9 @@ var game = new Phaser.Game(window.innerWidth/2.5,window.innerWidth/3, Phaser.AUT
 function preload() {
 
     game.load.image('sky', 'src/img/sky.png');
-    game.load.spritesheet('ground', 'src/img/platform.png', 32, 32);
+    // game.load.spritesheet('platform', 'src/img/platform.png', 32, 32);
+    game.load.spritesheet('dirt', 'src/img/dirt.png', 32, 32);
+    game.load.spritesheet('cobble', 'src/img/cobble.png', 32, 32);
     game.load.spritesheet('hero', 'src/img/hero.png', 32, 32);
 
     game.load.tilemap('map', 'src/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
@@ -24,9 +26,9 @@ function create() {
 
     game.stage.backgroundColor = "#9bffff";
     
-
     map = game.add.tilemap('map');
-    map.addTilesetImage('ground');
+    map.addTilesetImage('dirt');
+    map.addTilesetImage('cobble');
 
     layer = map.createLayer('level_1');
     layer.resizeWorld();
@@ -43,7 +45,7 @@ function create() {
     //  We need to enable physics on the player
     game.physics.arcade.enable(player);
 
-    //  Player physics properties. Give the little guy a slight bounce.
+    //  Player physics properties
     // player.body.bounce.y = 0.2;
     player.body.gravity.y = 1000;
     player.body.collideWorldBounds = true;
