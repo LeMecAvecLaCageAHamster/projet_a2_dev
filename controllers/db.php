@@ -27,16 +27,22 @@ class DB {
 
 	/* ajouter un utilisateur */
 	public function addUser($login, $password){
-		$password = sha1($password);
 
-		$query = 'INSERT INTO users VALUES (null, :login, :password, 0)';
-		$statement = $this->pdo->prepare($query);
-		var_dump($statement->execute([
-			':login' => $login,
-			':password' => $password
-		]));
+		if(empty($this->getUser($login))){ // si l'utilisateur rentré n'est pas déjà dans la BDD
 
-		return $statement; // bool
+			$password = sha1($password);
+
+			$query = 'INSERT INTO users VALUES (null, :login, :password, 0)';
+			$statement = $this->pdo->prepare($query);
+			$statement->execute([
+				':login' => $login,
+				':password' => $password
+			]);
+
+			return $statement; // bool
+		}
+
+		return false;
 	}
 
 

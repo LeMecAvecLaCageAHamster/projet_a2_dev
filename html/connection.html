@@ -7,25 +7,27 @@
 			<img src="src/img/beetroot.png">
 			<form method="post">
 				<div class="form-group">
-					<label for="user">User</label>
-					<input type="text" id="user" name="user" class="form-control">
+					<label for="user">Login</label>
+					<input type="text" id="user" name="user" class="form-control" required>
 				</div>
 
 				<div class="form-group">
-					<label for="password">Password</label>
-					<input type="password" id="password" name="password" class="form-control">
+					<label for="password">Mot de passe</label>
+					<input type="password" id="password" name="password" class="form-control" required>
 				</div>
 
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary">Login</button>
+					<button type="submit" class="btn btn-primary">Se connecter</button>
 				</div>
 			</form>
+
 			<?php if(isset($error)): ?>
 				<div class="alert alert-danger" role="alert">
 					<?= $error ?>
 				</div>
 			<?php endif; ?>
-			<a href="index.php?register"><b>New User ? Sign In !</b></a>
+			
+			<a href="index.php?register"><b>Nouvel utilisateur ? Crée un compte !</b></a>
 		</div>
 	</div>
 </div>

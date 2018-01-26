@@ -32,33 +32,33 @@
 
 				if($_POST['password'] == $_POST['check-password']){		
 
-					try{
-						$db = new DB('root', '');
-						$db->addUser($_POST['user'], $_POST['password']);
+					$db = new DB('root', 'root');
+					$addUser = $db->addUser($_POST['user'], $_POST['password']);
 
-						$_SESSION['user'] = $_POST['user'];
-					}catch(PDOException $e){
-						$error = "Error database => $e";
+					if($addUser){
+						// $_SESSION['user'] = $_POST['user'];
+					}else{
+						$error = "Cet utilisateur est déjà utilisé ¯\_(ツ)_/¯";
 					}
-					
+
 				}else{
-					$error = "Passwords doesn't match !";
+					$error = "Les mots de passe ne correspondent pas !";
 				}
 
 			}else{
-				$error = "You have to fill in every fields !";
+				$error = " Tu dois remplir tous les champs !";
 			}
 
 		/* dans le cas de la connection */
 		}else if(isset($_POST['user'], $_POST['password']) && $_POST['password']){
 
-			$db = new DB('root', '');
+			$db = new DB('root', 'root');
 			$login = $db->login($_POST['user'], $_POST['password']);
 
 			if($login){
 				$_SESSION['user'] = $_POST['user'];
 			}else{
-				$error = "Bad Authentification !";
+				$error = "L'utilisateur et/ou le mot de passe est incorrect !";
 			}
 		}
 
@@ -92,12 +92,14 @@
 	if(isset($_SESSION['user'])): ?>
 		<div id="logout">
 			<form method="post" action="index.php">
-				Connected as <?= $_SESSION['user'] ?>
+				Bonjour, <?= $_SESSION['user'] ?>
 				<input type="submit" name="logout" class="btn btn-light" value="Logout">
 			</form>
 		</div>
 	<?php endif;
 
+
+	require_once('html/modal.html');
 ?>
 </body>
 <footer>
