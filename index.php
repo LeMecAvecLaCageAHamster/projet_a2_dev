@@ -32,11 +32,11 @@
 
 				if($_POST['password'] == $_POST['check-password']){		
 
-					$db = new DB('root', 'root');
+					$db = new DB('root', '');
 					$addUser = $db->addUser($_POST['user'], $_POST['password']);
 
 					if($addUser){
-						// $_SESSION['user'] = $_POST['user'];
+						$_SESSION['user'] = $_POST['user'];
 					}else{
 						$error = "Cet utilisateur est déjà utilisé ¯\_(ツ)_/¯";
 					}
@@ -52,7 +52,7 @@
 		/* dans le cas de la connection */
 		}else if(isset($_POST['user'], $_POST['password']) && $_POST['password']){
 
-			$db = new DB('root', 'root');
+			$db = new DB('root', '');
 			$login = $db->login($_POST['user'], $_POST['password']);
 
 			if($login){
