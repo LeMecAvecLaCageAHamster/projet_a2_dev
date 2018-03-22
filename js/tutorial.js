@@ -14,6 +14,6 @@ var speaker = function(){
 
 setTimeout(
 	function(){
-		speaker()
+		// speaker()
 	}, 1000
 );

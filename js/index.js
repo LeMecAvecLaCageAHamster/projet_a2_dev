@@ -59,6 +59,11 @@ function create() {
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
+
+    // When hit lava ?
+    map.setTileIndexCallback(2, (sprite, tile) => {
+        game.state.start(game.state.current);
+    }, this);
 }
 
 
@@ -66,6 +71,7 @@ function update() {
 
     //  Collide the player with the platforms
     game.physics.arcade.collide(player, layer);
+
 
     //  Reset the players velocity (movement)
     player.body.velocity.x = 0;
@@ -102,8 +108,6 @@ function update() {
     {
         player.body.velocity.y = -350;
     }
-
-
 
 }
 
