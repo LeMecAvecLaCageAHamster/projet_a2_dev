@@ -1,19 +1,8 @@
-var tutorialDialogue = [
+var tuto = [
     'Bonjour jeune betterave, tu es ici dans le fabuleux monde du JavaScript !',
-    'Tu ne dois pas savoir pourquoi tu es ici je suppose ?',
-    'C\'est très simple, tu es l\'élu de la prophétie !',
-    'Celui qui ramènera l\'ordre dans notre royaume !'
+	'Le but de ce niveau est de te familiariser avec la syntaxe de ce langage',
+	'Essaie d\'arriver au bout ;)'
 ];
 
+setTimeout(() => tuto.forEach((value) => alert(value)), 1000);
 
-var speaker = function(){
-	for (var i = 0; i < tutorialDialogue.length; i++) {
-		alert(tutorialDialogue[i]);
-	}
-};
-
-setTimeout(
-	function(){
-		// speaker()
-	}, 1000
-);

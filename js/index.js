@@ -7,6 +7,8 @@ function preload() {
     game.load.spritesheet('dirt', 'src/img/dirt.png', 32, 32);
     game.load.spritesheet('cobble', 'src/img/cobble.png', 32, 32);
     game.load.spritesheet('hero', 'src/img/hero.png', 32, 32);
+    game.load.spritesheet('spike1', 'src/img/spike1.png', 32, 32);
+    game.load.spritesheet('flag', 'src/img/flag.png', 32, 32);
 
     game.load.tilemap('map', 'src/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
 }
@@ -29,6 +31,8 @@ function create() {
     map = game.add.tilemap('map');
     map.addTilesetImage('dirt');
     map.addTilesetImage('cobble');
+    map.addTilesetImage('spike1');
+    map.addTilesetImage('flag');
 
     layer = map.createLayer('level_1');
     layer.resizeWorld();
@@ -60,9 +64,15 @@ function create() {
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
 
-    // When hit lava ?
-    map.setTileIndexCallback(2, (sprite, tile) => {
+    // When hit a trap
+    map.setTileIndexCallback(3, (sprite, tile) => { // 3, nb in json for spike2
         game.state.start(game.state.current);
+    }, this);
+
+    // When hit final flag
+    map.setTileIndexCallback(12, (sprite, tile) => {
+        alert("Bravo, tu as réussi ! Maintenant, retournons à la page des niveaux ;) !");
+        return window.location.href = '?page=level';        
     }, this);
 }
 

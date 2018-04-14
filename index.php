@@ -16,6 +16,7 @@
 
 		// error_reporting(0);
 		session_start();
+		$db = new DB('root', '');
 
 		/* ----------------------------------------------------------------*/
 
@@ -31,8 +32,6 @@
 			if(isset($_POST['user'], $_POST['password'], $_POST['check-password'])){
 
 				if($_POST['password'] == $_POST['check-password']){		
-
-					$db = new DB('root', 'root');
 					$addUser = $db->addUser($_POST['user'], $_POST['password']);
 
 					if($addUser){
@@ -52,7 +51,6 @@
 		/* dans le cas de la connection */
 		}else if(isset($_POST['user'], $_POST['password']) && $_POST['password']){
 
-			$db = new DB('root', 'root');
 			$login = $db->login($_POST['user'], $_POST['password']);
 
 			if($login){
