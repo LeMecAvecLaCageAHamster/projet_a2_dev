@@ -7,24 +7,57 @@
 
 <div class="col-md-6">
 	<div id="player-detail">
-		<h3>Liste des attributs / méthodes disponible</h3>
+		<h3>Liste des attributs / méthodes disponibles</h3>
 		
 		<ol class="list-group">
-			<li class="list-group-item"><b>player.body.gravity.y</b> : Nombre -> l'effet de la gravity sur la betterave</li>
-			<li class="list-group-item"><b>player.maxSpeed</b> : Nombre -> la vitesse de déplacement de la betterave</li>
-			<hr>
-			<li class="list-group-item"><i><b>reload()</b></i> : Null -> resfresh la page en cas de besoin</li>
+			<li class="list-group-item"><b>player.maxSpeed</b> : Nombre -> la vitesse de déplacement de la betterave | Valeur par défaut : 30 </li>
+			<li class="list-group-item"><b>player.body.gravity.y</b> : Nombre -> l'effet de la gravity sur la betterave | Valeur par défaut : 1000 </li>
 		</ol>
 
 	</div>
 	<hr>
 	<div id="editor">
 		<h3>Code Area</h3>
-		<textarea id="code-area" placeholder="Write code here..."></textarea>
+		<textarea id="code-area" placeholder="Try something great..."></textarea>
+		<div id="execute"><b>Execute !</b></div>
 		<br>
-		<button id="execute" class="btn btn-lg btn-success">Execute !</button>
+		<!-- <button id="execute" class="btn btn-lg btn-success">Execute !</button> -->
 		<br><br>
 		<div id="coding-result" role="alert"></div>
+	</div>
+</div>
+
+<div id="tutorial-modal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Niveau 1</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>
+					Bonjour jeune betterave, tu es ici dans le fabuleux monde du JavaScript !
+					<br>
+					<br>
+					Le but est de te familiariser avec la syntaxe de ce langage
+					en traversant ce niveau.
+					<br>
+					<br>
+					Sers toi des flèches directionelles du clavier pour te déplacer.
+					<br>
+					<br>
+					Exécute du code dans la console pour résoudre les énigmes, surtout n'hésite pas à faire des recherches sur le JS pour ça.
+					<br>
+					<br>
+					A toi de jouer ;)
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+			</div>
+		</div>
 	</div>
 </div>
 

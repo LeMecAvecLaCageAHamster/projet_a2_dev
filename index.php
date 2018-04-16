@@ -80,6 +80,9 @@
 				case 'game':
 					require_once("html/game.html");
 					break;
+				case 'about':
+					require_once("html/about.html");
+					break;
 				default:
 					require_once("html/menu.html");
 					break;

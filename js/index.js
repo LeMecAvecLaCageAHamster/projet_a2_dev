@@ -53,7 +53,7 @@ function create() {
     // player.body.bounce.y = 0.2;
     player.body.gravity.y = 1000;
     player.body.collideWorldBounds = true;
-    player.maxSpeed = 150;
+    player.maxSpeed = 30;
 
     game.camera.follow(player);
 
@@ -71,8 +71,9 @@ function create() {
 
     // When hit final flag
     map.setTileIndexCallback(12, (sprite, tile) => {
-        alert("Bravo, tu as réussi ! Maintenant, retournons à la page des niveaux ;) !");
-        return window.location.href = '?page=level';        
+        modal();
+        //alert("Bravo, tu as réussi ! Maintenant, retournons à la page des niveaux ;) !");
+        //return window.location.href = '?page=level';        
     }, this);
 }
 
@@ -123,4 +124,9 @@ function update() {
 
 function render(){
     // game.debug.bodyInfo(player, 16, 24);
+}
+
+function modal(id = 'tutorial-modal'){
+    $('#'+id+' .modal-dialog .modal-content .modal-body p').html('Bien joué ! <br> Tu peux soit recommencer, soit retourner à la page des niveaux');
+    $('#'+id).modal();
 }
