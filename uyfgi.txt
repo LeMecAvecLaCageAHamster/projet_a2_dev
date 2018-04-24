@@ -1,0 +1,12 @@
+diagramme de classe
+cas d'utilisation
+diagrammes uml
+plans de tests
+licences
+librairies
+documents sur l'architecture
+commentaires de code / php doc
+fichiers de conf
+hébergement - qu'est-ce qui est nécessaire pour faire tourner
+DB - schéma de base de données
+suivi de projet (avec pourcentage d'avancement etc...)
