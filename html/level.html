@@ -1,19 +1,16 @@
 <link rel="stylesheet" href="css/level.css">
+<a id='back' href="index.php" class="glyphicon glyphicon-arrow-left"></a>
 
-<div class="container">
-	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3">
-			<h1>LEVEL CHOICE</h1>
+<div id="level-list" class="col-md-12">
+	<h1>LEVEL CHOICE</h1>
 
-			<a href="index.php?page=game" onclick="return confirm('Go to the JavaScript World ?')" title="JavaScript World">
-				<img src="src/img/js.png">
-			</a>
+	<a href="#" onclick="modal('Go to the Javascript world ?')" title="JavaScript World">
+		<img src="src/img/js.png">
+	</a>
 
-			<img class="disable" src="src/img/php.png" title="This world isn't unlocked yet">
-			<img class="disable" src="src/img/java.png" title="This world isn't unlocked yet">
-			<img class="disable" src="src/img/c.png" title="This world isn't unlocked yet">
-			<a id='back' href="index.php" class="glyphicon glyphicon-arrow-left"></a>
+	<!-- NOT AVAILABLE -->
+	<img class="disable" src="src/img/php.png" title="This world isn't unlocked yet">
+	<img class="disable" src="src/img/java.png" title="This world isn't unlocked yet">
+	<img class="disable" src="src/img/c.png" title="This world isn't unlocked yet">
 
-		</div>
-	</div>
 </div>

@@ -1,16 +1,16 @@
-/*.container{
-	zoom: 1.5;
-}
-*/
 img{
 	display: inline-block;
-	max-height: 100px;
 	min-height: 50px;
+	max-width: 25vh;
 	margin: 5%;
 }
 
 a{
 	text-decoration: none !important;
+}
+
+#level-list{
+	margin-top: 10vh;
 }
 
 .disable{
