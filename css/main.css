@@ -9,6 +9,7 @@
 body{
 	margin-top: 5% !important;
 	text-align: center;
+	background: linear-gradient(to right, #c9d6ff, #e2e2e2);
 }
 
 #back{

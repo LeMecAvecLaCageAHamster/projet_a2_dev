@@ -4,7 +4,6 @@ body{
 
 img{
 	width: 25% !important;
-	height: 25% !important;
 	pointer-events: none !important;
 }
 
