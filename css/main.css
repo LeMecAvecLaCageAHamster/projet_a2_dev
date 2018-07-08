@@ -1,5 +1,9 @@
 * {	
-	font-family: 'Raleway', sans-serif;
+	font-family:  'Raleway', 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	src: url(../src/mdb/font/roboto/Roboto-Bold.ttf) format("truetype");
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 body{
@@ -9,11 +13,8 @@ body{
 
 #back{
 	position: absolute !important;
-	top: 10px !important;
-	left: 5px;
-	border: 5px solid;
-	border-radius: 50px;
-	padding: 5px;
+	top: 0; left: 0;
+	margin: .5em;
 	font-size: 30px !important;
 	text-decoration: none !important;
 }

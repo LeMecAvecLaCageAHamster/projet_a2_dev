@@ -21,7 +21,6 @@ class Modal{
 	}
 
 	function getModal(){
-
 		return "
 			<div id='$this->id' class='$this->class' tabindex='-1' role='dialog'>
 				<div class='modal-dialog' role='document'>

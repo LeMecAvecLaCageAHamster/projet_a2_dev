@@ -83,7 +83,10 @@ if(isset($_SESSION['user'])): ?>
 	<div id="logout">
 		<form method="post" action="index.php">
 			Bonjour, <?= $_SESSION['user'] ?>
-			<input type="submit" name="logout" class="btn btn-light" value="Logout">
+			<button type="submit" name="logout" class="btn btn-info btn-sm">
+				<i class="fa fa-sign-out"></i>
+				Logout
+			</button>
 		</form>
 	</div>
 <?php endif;
