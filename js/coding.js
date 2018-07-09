@@ -2,14 +2,16 @@ $(document).ready(function() {
 	$('#game').append($('canvas'));
 });
 
+var codeAreaElement = '.CodeMirror';
+
 $('#execute').click(function(){
 	$("#coding-result").attr('class', '');
 	$("#coding-result").html("");
 
-	if($('#code-area')[0].value.length > 0){
+	if($(codeAreaElement).text().length > 0){
 		try{
-			var exec = eval($('#code-area').val());
-			// $('#code-area').val("");
+			var exec = eval($(codeAreaElement).text());
+			// $(codeAreaElement).val("");
 
 			if(exec){
 				$("#coding-result").attr('class', 'alert alert-success');
