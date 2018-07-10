@@ -22,7 +22,7 @@ class LevelView{
 		);
 
 		echo $modal->getModal();
-		echo $modal->showModal('levelconfirm-modal', 0);
+		echo $modal->showModal('levelconfirm-modal');
 	}
 
 }

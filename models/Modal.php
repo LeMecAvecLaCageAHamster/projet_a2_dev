@@ -48,9 +48,10 @@ class Modal{
 	function showModal($id, $timeout=0){
 		return "
 			<script>
-				function modal(content=null){
-					console.log(content);
-					if(content) $('.modal-body p').text(content);
+				function modal(content, buttonText=null, link=null){
+					$('.modal-body p').text(content);
+					if(buttonText != null)	$('.modal-footer a').text(buttonText);
+					if(link != null)		$('.modal-footer a').attr('href', link);
 					setTimeout(() => $('#$id').modal(), $timeout);
 				}
 			</script>

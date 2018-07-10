@@ -71,9 +71,7 @@ function create() {
 
     // When hit final flag
     map.setTileIndexCallback(12, (sprite, tile) => {
-        modal();
-        alert("Bravo, tu as réussi !!");
-        //return window.location.href = '?page=level';        
+        modal("Bravo, tu as réussi !!", "OK");        
     }, this);
 }
 

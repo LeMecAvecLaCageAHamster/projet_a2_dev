@@ -8,7 +8,7 @@ use App\View\GameView;
 use App\Controller\DBController;
 
 session_start();
-$db = DBController::getInstance('root', '');
+$db = DBController::getInstance('root', 'root');
 
 // Logout
 if(isset($_POST['logout'])){
