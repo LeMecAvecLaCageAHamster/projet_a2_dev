@@ -52,3 +52,7 @@ canvas{
 #execute:hover{
 	background-color: rgb(178, 223, 172);
 }
+
+.CodeMirror{
+	text-align: left !important;
+}

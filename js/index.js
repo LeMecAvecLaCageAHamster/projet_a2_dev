@@ -72,7 +72,7 @@ function create() {
     // When hit final flag
     map.setTileIndexCallback(12, (sprite, tile) => {
         modal();
-        //alert("Bravo, tu as réussi ! Maintenant, retournons à la page des niveaux ;) !");
+        alert("Bravo, tu as réussi !!");
         //return window.location.href = '?page=level';        
     }, this);
 }
