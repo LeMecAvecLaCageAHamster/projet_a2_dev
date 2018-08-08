@@ -18,7 +18,7 @@ canvas{
 }
 
 #game{
-	display: inline-block;
+	float: right;
 }
 
 #player-detail{
@@ -34,9 +34,25 @@ canvas{
 }
 
 #code-area{
-	width: 75% !important;
-	color: black;
-	font-size: 200%;
-	background-color: lightblue !important;
-	min-height: 75%;
+	display: block;
+	width: 100% !important;
+	color: gray;
+	font-size: 120%;
+	background-color: #f9f9f9 !important;
+	height: 12em;
+}
+
+#execute{
+	display: block;
+	cursor: pointer;
+	color: gray;
+	background-color: rgb(200, 200, 200);
+}
+
+#execute:hover{
+	background-color: rgb(178, 223, 172);
+}
+
+.CodeMirror{
+	text-align: left !important;
 }

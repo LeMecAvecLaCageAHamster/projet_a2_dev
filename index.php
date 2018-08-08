@@ -1,92 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Betterave Game</title>
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="icon" href="src/img/beetroot.ico">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-</head>
-<body>
-	
-	<?php
-		error_reporting(0);
-		session_start();
+<?php
 
-		if(isset($_POST['logout'])){
-			unset($_SESSION);
-			session_destroy();
-		}
+namespace App;
+require_once 'autoloader.php';
 
-		if(isset($_POST['register'])){
-			if(isset($_POST['user'], $_POST['password'], $_POST['check-password'])){
-				if($_POST['password'] == $_POST['check-password']){		
-					$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', 'root');
-					$response = $db->query("INSERT INTO users VALUES (null, '".$_POST['user']."', '".$_POST['password']."', 0);");
-					
-					$_SESSION['user'] = $_POST['user'];
-				}else{
-					$error = "Passwords doesn't match !";
-				}
+use App\View\LevelView;
+use App\View\GameView;
+use App\Controller\DBController;
+
+session_start();
+$db = DBController::getInstance('root', 'root');
+
+// Logout
+if(isset($_POST['logout'])){
+	unset($_SESSION);
+	session_destroy();
+}
+
+// Register
+if(isset($_POST['register'])){
+	if(isset($_POST['user'], $_POST['password'], $_POST['check-password'])){
+		if($_POST['password'] == $_POST['check-password']){		
+			$addUser = $db->addUser($_POST['user'], $_POST['password']);
+
+			if($addUser){
+				$_SESSION['user'] = $_POST['user'];
 			}else{
-				$error = "You have to fill in every fields !";
-			}
-
-		}else if($_POST['user'] && $_POST['password']){
-
-			$db = new PDO('mysql:host=localhost;dbname=betterave;charset=utf8', 'root', 'root');
-			$response = $db->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
-
-			foreach ($response as $user) {
-				if($_POST['user'] == $user['login']){
-					if($_POST['password'] == $user['password']){
-						$_SESSION['user'] = $_POST['user'];
-						break;
-					}
-				}
-			}
-
-			if(empty($_SESSION['user'])){
-				$error = "Bad Authentification !";
-			}
-		}
-
-		if(empty($_SESSION)){
-			if(isset($_GET['register'])){
-				require_once("html/register.html");
-			}else{
-				require_once("html/connection.html");
+				$error = "Cet utilisateur est déjà utilisé ¯\_(ツ)_/¯";
 			}
 		}else{
-			switch ($_GET['page']) {
-				case 'level':
-					require_once("html/level.html");
-					break;
-				case 'game':
-					require_once("html/game.html");
-					break;
-				default:
-					require_once("html/menu.html");
-					break;
-			}
+			$error = "Les mots de passe ne correspondent pas !";
 		}
+	}else{
+		$error = "Tu dois remplir tous les champs !";
+	}
 
-	?>
+// Login
+}else if(isset($_POST['user'], $_POST['password']) && $_POST['password']){
+	$login = $db->login($_POST['user'], $_POST['password']);
+
+	if($login){
+		$_SESSION['user'] = $_POST['user'];
+	}else{
+		$error = "L'utilisateur et/ou le mot de passe est incorrect !";
+	}
+}
 
 
-	<?php if($_SESSION['user']): ?>
-		<div id="logout">
-			<h4>Connected as <?= $_SESSION['user'] ?></h4>
-			<form method="post">
-				<input type="submit" name="logout" class="btn btn-secondary" value="Logout">
-			</form>
-		</div>
-	<?php endif; ?>
+// ----------------------------------------------------------------------------
 
-</body>
-<footer>
-	<script src="js/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-</footer>
-</html>
+
+require_once 'html/header.html';
+
+// User not logged in
+if(empty($_SESSION)){
+	if(isset($_GET['register'])){
+		require_once "html/register.html";
+	}else{
+		require_once "html/connection.html";
+	}
+}else{
+	$_GET['page'] = isset($_GET['page']) ? $_GET['page'] : "";
+	
+	/* App routing system */
+	switch ($_GET['page']) {
+		case 'level':
+			echo LevelView::getView();
+			break;
+		case 'game':
+			echo GameView::getView();
+			break;
+		case 'about':
+			require_once "html/about.html";
+			break;
+		default:
+			require_once "html/menu.html";
+			break;
+	}
+}
+
+// For 'Logout' button
+if(isset($_SESSION['user'])): ?>
+	<div id="logout">
+		<form method="post" action="index.php">
+			Bonjour, <?= $_SESSION['user'] ?>
+			<button type="submit" name="logout" class="btn btn-info btn-sm">
+				<i class="fa fa-sign-out"></i>
+				Logout
+			</button>
+		</form>
+	</div>
+<?php endif;
+
+require_once 'html/footer.html';

@@ -2,14 +2,8 @@ body{
 	margin-top: 3em !important;
 }
 
-a{
-	padding: 5% 15% 5% 15% !important;
-	margin: 5% !important;
-}
-
 img{
 	width: 25% !important;
-	height: 25% !important;
 	pointer-events: none !important;
 }
 
@@ -19,8 +13,4 @@ h1{
 
 form{
 	text-align: left;
-}
-
-#content{
-	zoom: 150%;
 }

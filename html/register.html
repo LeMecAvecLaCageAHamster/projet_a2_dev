@@ -2,35 +2,37 @@
 
 <div class="container">
 	<div class="row">
-		<div id="content" class="col-sm-6 col-sm-offset-3">
+		<div id="content" class="col-6 offset-3 text-center">
 			<h1>BETTERAVE</h1>
 			<img src="src/img/beetroot.png">
 			<form method="post">
 				<div class="form-group">
-					<label for="user">User</label>
-					<input type="text" id="user" name="user" class="form-control">
+					<label for="user">Nom d'utilisateur</label>
+					<input type="text" id="user" name="user" class="form-control" required>
 				</div>
 
 				<div class="form-group">
-					<label for="password">Password</label>
-					<input type="password" id="password" name="password" class="form-control">
+					<label for="password">Mot de passe</label>
+					<input type="password" id="password" name="password" class="form-control" required>
 				</div>
 
 				<div class="form-group">
-					<label for="check-password">Re-type password</label>
-					<input type="password" id="check-password" name="check-password" class="form-control">
+					<label for="check-password">Retapez le mot de passe</label>
+					<input type="password" id="check-password" name="check-password" class="form-control" required>
 				</div>
 
-				<div class="form-group">
+				<div class="form-group text-center">
 					<button type="submit" name="register" class="btn btn-primary">Join the Rebellion !</button>
 				</div>
 			</form>
-			<a href="index.php"><b>Already a user ? Log in !</b></a>
-			<?php if($error): ?>
+			
+			<?php if(isset($error)): ?>
 				<div class="alert alert-danger" role="alert">
 					<?= $error ?>
 				</div>
 			<?php endif; ?>
+
+			<a href="index.php"><b>Déjà utilisateur ? Connecte toi !</a>
 		</div>
 	</div>
 </div>

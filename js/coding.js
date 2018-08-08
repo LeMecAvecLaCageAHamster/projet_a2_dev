@@ -2,14 +2,20 @@ $(document).ready(function() {
 	$('#game').append($('canvas'));
 });
 
+var codeArea = document.getElementById("code-area");
+var editor = CodeMirror.fromTextArea(codeArea, {
+	lineNumbers: true,
+	gutter: true,
+	lineWrapping: true
+});
+
 $('#execute').click(function(){
 	$("#coding-result").attr('class', '');
 	$("#coding-result").html("");
 
-	if($('#code-area')[0].value.length > 0){
+	if(editor.getValue().length > 0){
 		try{
-			var exec = eval($('#code-area').val());
-			// $('#code-area').val("");
+			var exec = eval(editor.getValue());
 
 			if(exec){
 				$("#coding-result").attr('class', 'alert alert-success');

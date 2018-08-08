@@ -1,37 +1,35 @@
 <link rel="stylesheet" href="css/game.css">
+<link href="src/codemirror/lib/codemirror.css" media="screen" rel="stylesheet" type="text/css" />
 
-<a id='back' href="#" onclick="window.history.back()" class="glyphicon glyphicon-arrow-left"></a>
+<a id='back' href="?page=level" class="fa fa-arrow-left"></a>
 
+<div id="game" class="col-6"></div>
 
-<div id="game"></div>
-
-<div class="col-md-6">
+<div class="col-6">
 	<div id="player-detail">
-		<h3>Liste des attributs / méthodes disponible</h3>
+		<h3>Liste des attributs / méthodes disponibles</h3>
 		
 		<ol class="list-group">
-			<li class="list-group-item"><b>player.body.gravity.y</b> : Nombre -> l'effet de la gravity sur la betterave</li>
-			<li class="list-group-item"><b>player.maxSpeed</b> : Nombre -> la vitesse de déplacement de la betterave</li>
-			<hr>
-			<li class="list-group-item"><i><b>reload()</b></i> : Null -> resfresh la page en cas de besoin</li>
+			<li class="list-group-item"><b>player.maxSpeed</b> : Nombre -> la vitesse de déplacement de la betterave | Valeur par défaut : 30 </li>
+			<li class="list-group-item"><b>player.body.gravity.y</b> : Nombre -> l'effet de la gravity sur la betterave | Valeur par défaut : 1000 </li>
 		</ol>
 
 	</div>
 	<hr>
 	<div id="editor">
 		<h3>Code Area</h3>
-		<textarea id="code-area" placeholder="Write code here..."></textarea>
+		<textarea id="code-area" placeholder="Try something great..."></textarea>
+		<div id="execute"><b>Execute !</b></div>
 		<br>
-		<button id="execute" class="btn btn-lg btn-success">Execute !</button>
-		<br><br>
 		<div id="coding-result" role="alert"></div>
 	</div>
 </div>
 
-<footer>	
-	<script src="js/jquery.min.js"></script>
-	<script src="js/phaser.min.js"></script>
-	<script src="js/index.js"></script>
-	<script src="js/coding.js"></script>
-	<script src="js/tutorial.js"></script>
-</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/phaser.min.js"></script>
+<script src="src/codemirror/lib/codemirror.js" type="text/javascript"></script>
+<script src="src/codemirror/mode/javascript/javascript.js" type="text/javascript"></script>
+<script src="js/index.js"></script>
+<script src="js/coding.js"></script>
+<script src="js/tutorial.js"></script>

@@ -1,0 +1,50 @@
+prochain audit sera moins long : une demie heure
+il faut que la prochaine fois tout soit dans le support de présentation, ce qui ne sera pas présenté "n'existe pas"
+il faut que les membres sachent parler d'un peu tout même s'ils n'ont pas fait car on sera sûrement interroger l'un et les autres
+effort vestimentaire pour le prochain : pas de T-shirt, soit tous pareil soit costard
+doc supp à rajouter :
+ - reporting des heures
+ - les aléas de la vie du projet
+ - documentation dev propre
+automatisation de l'installation avec indication sur le readme github
+tests unitaires
+tests fonctionnelles
+listing de toutes les anomalies
+cas d'utilisation
+cahier des charges
+
+NEED support visuel absolument
+
+note sur les deux meilleurs audit, sachant que le dernier = 0, donc gaffe
+
+EN PLUS:
+document AGL (Atelier Génie Logiciel) -> avec PREZI
+	->	Lister Soft utilisés
+		-> décrire / classifier / comparer aux concurrents (au moins 2)
+
+########################
+
+CE QUI VA ÊTRE EVALUÉ AU DERNIER AUDIT :
+
+- ponctualité, effort vestimentaire, ...
+- outil de gestion de projet, depot de doc, depot de fichier(git)
+- gestion du temps (planning, gantt)
+- outil de conception (uml, jmerise)
+- répartition des tâches
+- conception (cahier des charges, solutions possibles -pour le site web par exemple, genre les frameworks- , ...)
+	- comparer les techno dispo par rapport à celle choisi (ex : phaser face à ses concurrents)
+- TOUS LES DIAGRAMMES
+- qualité de conception initiale du projet / archi
+- plan de test (unitaire / fonctionnel) -> doivent être pertinent
+- lister les librairies / frameworks / serveur web / nom de domaine ==> ENVIRONNEMENT DE PROD
+- gestion des licenses
+- maîtrise du/des langage(s)
+- DOC PHP/JS
+- DESIGN PATTERN / WEBSERVICES
+- gestion % avancement projet
+- compte rendu meeting
+- aleas du projet (membre du projet qui part, machine qui tombe en panne, ...)
+- Est ce que l'objectif est atteint ?
+- Complexité du logiciel
+- documentation / tutoriel pour utilisateur
+- qu'est ce qui ne fonctionne pas / anomalies / rapport des tests

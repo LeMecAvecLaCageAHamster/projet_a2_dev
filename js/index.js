@@ -3,8 +3,12 @@ var game = new Phaser.Game(window.innerWidth/2.5,window.innerWidth/3, Phaser.AUT
 function preload() {
 
     game.load.image('sky', 'src/img/sky.png');
-    game.load.spritesheet('ground', 'src/img/platform.png', 32, 32);
+    // game.load.spritesheet('platform', 'src/img/platform.png', 32, 32);
+    game.load.spritesheet('dirt', 'src/img/dirt.png', 32, 32);
+    game.load.spritesheet('cobble', 'src/img/cobble.png', 32, 32);
     game.load.spritesheet('hero', 'src/img/hero.png', 32, 32);
+    game.load.spritesheet('spike1', 'src/img/spike1.png', 32, 32);
+    game.load.spritesheet('flag', 'src/img/flag.png', 32, 32);
 
     game.load.tilemap('map', 'src/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
 }
@@ -24,9 +28,11 @@ function create() {
 
     game.stage.backgroundColor = "#9bffff";
     
-
     map = game.add.tilemap('map');
-    map.addTilesetImage('ground');
+    map.addTilesetImage('dirt');
+    map.addTilesetImage('cobble');
+    map.addTilesetImage('spike1');
+    map.addTilesetImage('flag');
 
     layer = map.createLayer('level_1');
     layer.resizeWorld();
@@ -43,11 +49,11 @@ function create() {
     //  We need to enable physics on the player
     game.physics.arcade.enable(player);
 
-    //  Player physics properties. Give the little guy a slight bounce.
+    //  Player physics properties
     // player.body.bounce.y = 0.2;
     player.body.gravity.y = 1000;
     player.body.collideWorldBounds = true;
-    player.maxSpeed = 150;
+    player.maxSpeed = 30;
 
     game.camera.follow(player);
 
@@ -57,6 +63,16 @@ function create() {
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
+
+    // When hit a trap
+    map.setTileIndexCallback(3, (sprite, tile) => { // 3, nb in json for spike2
+        game.state.start(game.state.current);
+    }, this);
+
+    // When hit final flag
+    map.setTileIndexCallback(12, (sprite, tile) => {
+        modal("Bravo, tu as réussi !!", "OK");        
+    }, this);
 }
 
 
@@ -64,6 +80,7 @@ function update() {
 
     //  Collide the player with the platforms
     game.physics.arcade.collide(player, layer);
+
 
     //  Reset the players velocity (movement)
     player.body.velocity.x = 0;
@@ -101,10 +118,13 @@ function update() {
         player.body.velocity.y = -350;
     }
 
-
-
 }
 
 function render(){
     // game.debug.bodyInfo(player, 16, 24);
+}
+
+function modal(id = 'tutorial-modal'){
+    $('#'+id+' .modal-dialog .modal-content .modal-body p').html('Bien joué ! <br> Tu peux soit recommencer, soit retourner à la page des niveaux');
+    $('#'+id).modal();
 }
