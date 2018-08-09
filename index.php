@@ -3,12 +3,14 @@
 namespace App;
 require_once 'autoloader.php';
 
+use App\Model\DB;
 use App\View\LevelView;
 use App\View\GameView;
-use App\Controller\DBController;
+use App\Controller\UserController;
 
 session_start();
-$db = DBController::getInstance('root', 'root');
+$db = DB::getInstance('root', 'root');
+$userController = new UserController;
 
 // Logout
 if(isset($_POST['logout'])){
@@ -20,7 +22,7 @@ if(isset($_POST['logout'])){
 if(isset($_POST['register'])){
 	if(isset($_POST['user'], $_POST['password'], $_POST['check-password'])){
 		if($_POST['password'] == $_POST['check-password']){		
-			$addUser = $db->addUser($_POST['user'], $_POST['password']);
+			$addUser = $userController->addUser($_POST['user'], $_POST['password']);
 
 			if($addUser){
 				$_SESSION['user'] = $_POST['user'];
@@ -36,10 +38,11 @@ if(isset($_POST['register'])){
 
 // Login
 }else if(isset($_POST['user'], $_POST['password']) && $_POST['password']){
-	$login = $db->login($_POST['user'], $_POST['password']);
+	$user = $userController->login($_POST['user'], $_POST['password']);
+	// $login = $db->login($_POST['user'], $_POST['password']);
 
-	if($login){
-		$_SESSION['user'] = $_POST['user'];
+	if($user){
+		$_SESSION['user'] = $user->getLogin();
 	}else{
 		$error = "L'utilisateur et/ou le mot de passe est incorrect !";
 	}
