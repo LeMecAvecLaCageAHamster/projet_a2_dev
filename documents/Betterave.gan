@@ -56,16 +56,32 @@
                     <depend id="18" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
-            <task id="18" name="Phase Pré 1er audit" color="#8cb6ce" meeting="false" start="2018-01-03" duration="74" complete="0" expand="true">
-                <task id="78" name="tâche_78" meeting="false" start="2018-01-03" duration="1" complete="0" expand="true"/>
+            <task id="18" name="Phase Pré 1er audit" color="#8cb6ce" meeting="false" start="2018-01-04" duration="74" complete="0" expand="true">
+                <task id="78" name="Mise en place architecture" color="#8cb6ce" meeting="false" start="2018-01-04" duration="7" complete="0" expand="true">
+                    <depend id="97" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="90" name="Ajout des librairies" color="#8cb6ce" meeting="false" start="2018-01-04" duration="12" complete="0" expand="true">
+                    <depend id="97" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="94" name="Création BDD" color="#8cb6ce" meeting="false" start="2018-01-04" duration="2" complete="0" expand="true">
+                    <depend id="96" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="96" name="Mise en place BDD" color="#8cb6ce" meeting="false" start="2018-01-08" duration="1" complete="0" expand="true">
+                    <depend id="97" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="97" name="Codage" color="#8cb6ce" meeting="false" start="2018-01-22" duration="62" complete="0" expand="true">
+                    <task id="109" name="Creation du monde JS" color="#8cb6ce" meeting="false" start="2018-01-22" duration="62" complete="0" expand="true"/>
+                </task>
                 <task id="74" name="Réunion de mi-phase" color="#8cb6ce" meeting="true" start="2018-02-23" duration="0" complete="0" expand="true"/>
                 <task id="80" name="Réunion fin de phase" color="#8cb6ce" meeting="true" start="2018-04-16" duration="0" complete="0" expand="true"/>
                 <task id="26" name="Fin phase pré 1er audit" color="#8cb6ce" meeting="true" start="2018-04-17" duration="0" complete="0" expand="true">
                     <depend id="19" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
-            <task id="19" name="Phase Post 1er audit" color="#8cb6ce" meeting="false" start="2018-08-10" duration="1" complete="0" expand="true">
+            <task id="19" name="Phase Post 1er audit" color="#8cb6ce" meeting="false" start="2018-04-17" duration="84" complete="0" expand="true">
+                <task id="104" name="Finition du projet" color="#8cb6ce" meeting="false" start="2018-04-17" duration="84" complete="0" expand="true"/>
                 <task id="27" name="Audit Final" color="#8cb6ce" meeting="true" start="2018-08-10" duration="0" complete="0" expand="true"/>
+                <task id="86" name="Documents présentation du projet" color="#8cb6ce" meeting="false" start="2018-07-13" duration="21" complete="0" expand="true"/>
             </task>
         </task>
     </tasks>
