@@ -1,9 +1,8 @@
 cd /var/www/html/
-mkdir test_deployment
-cd test_deployment
 git clone https://github.com/LeMecAvecLaCageAHamster/projet_a2_dev.git
-cp projet_a2_dev/betterave.conf /etc/apache2/site-available
-ln -s /etc/apache2/site-available/betterave.conf /etc/apache2/site-enable/betterave.conf
-mysql < documents/betterave.sql
+cd projet_a2_dev
+sudo cp betterave.conf /etc/apache2/sites-available
+sudo ln -s /etc/apache2/sites-available/betterave.conf /etc/apache2/sites-enabled/betterave.conf
+mysql -u root -p < documents/betterave.sql
 service apache2 restart
-xdg-open http://localhost:1234
+# xdg-open http://localhost:1234
